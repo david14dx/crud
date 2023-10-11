@@ -41,6 +41,13 @@ include 'connect.php';?>
                         $email=$row['email'];
                         $mobile=$row['mobile'];
                         $password=$row['password'];
+                        echo '<tr>
+                        <th scope="row">'.$id.'</th>
+                        <td>'.$name.'</td>
+                        <td>'.$email.'</td>
+                        <td>'.$mobile.'</td>
+                        <td>'.$password.'</td>
+                    </tr>';
                     }
                     
                 }
