@@ -15,11 +15,11 @@ require_once('./operation.php');
 <body>
     <h1 class = "text-center my-3">Registration Form</h1>
     <div class="container d-flex justify-content-center">
-        <form action="" class="w-50">
+        <form action="displayimageupload.php" method="post" class="w-50" enctype="multipart/form-data">
             <?php inputFields("Username","username", "","text"); ?>
             <?php inputFields("Mobile","mobile", "","text"); ?>
             <?php inputFields("","file", "","file"); ?>
-            <button class="btn btn-dark" type="button" name="submit" >Submit</button>
+            <button class="btn btn-dark" type="submit" name="submit" >Submit</button>
         </form>
     </div>
 </body>
