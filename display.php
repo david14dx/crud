@@ -15,6 +15,10 @@ include 'connect.php';?>
 <body>
 
     <div class="container">
+        <div class="row justify-content-center align-items-center g-2">
+            <div class="col" ><h1 class="display-1">CRUD Operation</h1></div>         
+        </div>
+
         <button class="btn btn-primary my-5"><a href="user.php" class="text-light">Add user</a>
         </button>
 
@@ -47,30 +51,21 @@ include 'connect.php';?>
                         <td>'.$email.'</td>
                         <td>'.$mobile.'</td>
                         <td>'.$password.'</td>
+
+                        <td>
+                        <button class="btn btn-primary"><a href="update.php? updateid='.$id.'" class="text-light">Update</a></button>
+                 
+                        <button class="btn btn-danger"><a href="delete.php? deleteid='.$id.'" class="text-light">Delete</a></button>
+                    </td>
+
                     </tr>';
                     }
                     
                 }
                 ?>
+                    
 
-
-                <!-- <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr> -->
+                
             </tbody>
         </table>
     </div>

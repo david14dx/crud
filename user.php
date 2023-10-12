@@ -33,6 +33,12 @@ if(isset($_POST['submit'])){
 
 <body>
     <div class="container my-5">
+    <div class="row justify-content-center align-items-center g-2">
+            <div class="col">
+                <h1 class="display-1">Append</h1>
+            </div>
+        </div>
+
         <form method="post" autocomplete="off">
             <div class="p-2">
                 <label>Name</label>
