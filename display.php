@@ -1,5 +1,5 @@
 <?php
-include 'connect.php';?>
+include 'connect.php'; ?>
 
 
 <!DOCTYPE html>
@@ -16,7 +16,9 @@ include 'connect.php';?>
 
     <div class="container">
         <div class="row justify-content-center align-items-center g-2">
-            <div class="col" ><h1 class="display-1">CRUD Operation</h1></div>         
+            <div class="col">
+                <h1 class="display-1">CRUD Operation</h1>
+            </div>
         </div>
 
         <button class="btn btn-primary my-5"><a href="user.php" class="text-light">Add user</a>
@@ -36,36 +38,43 @@ include 'connect.php';?>
             <tbody>
 
                 <?php
-                $sql="SELECT * FROM `tblStudent`";
-                $result=mysqli_query($con,$sql);
-                if($result){
-                    while($row=mysqli_fetch_assoc($result)){
-                        $id=$row['id'];
-                        $name=$row['name'];
-                        $email=$row['email'];
-                        $mobile=$row['mobile'];
-                        $password=$row['password'];
-                        echo '<tr>
-                        <th scope="row">'.$id.'</th>
-                        <td>'.$name.'</td>
-                        <td>'.$email.'</td>
-                        <td>'.$mobile.'</td>
-                        <td>'.$password.'</td>
 
-                        <td>
-                        <button class="btn btn-primary"><a href="update.php? updateid='.$id.'" class="text-light">Update</a></button>
-                 
-                        <button class="btn btn-danger"><a href="delete.php? deleteid='.$id.'" class="text-light">Delete</a></button>
-                    </td>
+                function displayemp()
+                {
+                    global $con;
+                    $sql = "SELECT * FROM `tblStudent`";
+                    $result = mysqli_query($con, $sql);
+                    if ($result) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $id = $row['id'];
+                            $name = $row['name'];
+                            $email = $row['email'];
+                            $mobile = $row['mobile'];
+                            $image = $row['image'];
+                            echo '<tr>
+            <th scope="row">' . $id . '</th>
+            <td>' . $name . '</td>
+            <td>' . $email . '</td>
+            <td>' . $mobile . '</td>
+            <td>' . $image . '</td>
 
-                    </tr>';
+            <td>
+            <button class="btn btn-primary"><a href="update.php? updateid=' . $id . '" class="text-light">Update</a></button>
+     
+            <button class="btn btn-danger"><a href="delete.php? deleteid=' . $id . '" class="text-light">Delete</a></button>
+        </td>
+
+        </tr>';
+                        }
                     }
-                    
                 }
-                ?>
-                    
 
-                
+                displayemp();
+
+                ?>
+
+
+
             </tbody>
         </table>
     </div>
