@@ -41,6 +41,47 @@ include 'connect.php'; ?>
                 </div>
                 <div class="col"></div>
             </div>
+
+            <?php
+
+            static $id = "";
+            static $name = "";
+            static $email = "";
+            static $mobile = "";
+            static $image = "";
+
+            function searchemp()
+            {
+                global $con;
+                static $id = "123";
+                $search = $_POST['search'];
+                $sql = "SELECT * FROM `tblstudent` WHERE id=$search";
+                $result = mysqli_query($con, $sql);
+                if ($result) {
+                    if (mysqli_num_rows($result) > 0) {
+                        $row = mysqli_fetch_assoc($result);
+                        global $id;
+
+                        echo $row['name'];
+                        /* $id = $row['id']; */
+                        /* static $name = $row['name'];
+                        static $email = $row['email'];
+                        static $mobile = $row['mobile'];
+                        static $image = $row['image']; */
+                    } else {
+                        static $id = "";
+                        static $name = "";
+                        static $email = "";
+                        static $mobile = "";
+                        static $image = "";
+                        echo "No records found.";
+                    }
+                } else {
+                    echo "Query failed: " . mysqli_error($con);
+                }
+            }
+            ?>
+
             <div class="row">
                 <div class="col"></div>
                 <div class="col-sm-4 bg-light">
@@ -54,36 +95,20 @@ include 'connect.php'; ?>
                             <!-- <input type="text" class="text" id="text"> -->
                             <!-- <button id="submit" type="submit" name="submit">Submit</button> -->
 
-                            <?php
+                            <h1> Employee ID : <?php global $id;
+                                                echo $id ?></h1>
 
-                            function searchemp()
-                            {
-                                global $con;
-                                $search = $_POST['search'];
-                                $sql = "SELECT * FROM `tblstudent` WHERE id=$search";
-                                $result = mysqli_query($con, $sql);
-                                if ($result) {
-                                    if (mysqli_num_rows($result) > 0) {
-                                        $row = mysqli_fetch_assoc($result);
-                                        $id = $row['id'];
-                                        $name = $row['name'];
-                                        $email = $row['email'];
-                                        $mobile = $row['mobile'];
-                                        $image = $row['image'];
-                                        echo '       
-                                    <p class="h1 h1david"> Employee ID : ' . $row['id'] . '</p>
-                                    <p class="h1 h1david"> Name : ' . $row['name'] . '</p>
-                                    <p class="h1 h1david"> Position : ' . $row['email'] . '</p>
-                                    <p class="h1 h1david"> Department : ' . $row['mobile'] . '</p>
-                                    <p class="h1 h1david"> Time Stamp : ' . "" .  '</p>
-                                    <img src=' . $image . ' />';
-                                    }
-                                }
-                            }
+                            <!-- <p class="h1 h1david"> Employee ID : ' . $row['id'] . '</p>
+                            <p class="h1 h1david"> Name : ' . $row['name'] . '</p>
+                            <p class="h1 h1david"> Position : ' . $row['email'] . '</p>
+                            <p class="h1 h1david"> Department : ' . $row['mobile'] . '</p>
+                            <p class="h1 h1david"> Time Stamp : ' . "" . '</p>
+                            <img src=' . $image . ' /> -->
+
+                            <?php
                             if (isset($_POST['submit'])) {
                                 searchemp();
                             }
-
                             ?>
 
                             <input type="text" name="search" placeholder="Search Data">
