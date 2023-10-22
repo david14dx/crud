@@ -20,14 +20,16 @@ if (isset($_POST['input'])) {
                             $email = $row['email'];
                             $mobile = $row['mobile'];
                             $image = $row['image'];
+                            if (empty($image)) {
+                                $image = "/images/ICIlogo.jpg";
+                            }
                         }
                         ?>
 
                         <img src="<?php echo $image; ?>" class="img-fluid" alt="Responsive image" width="100%">
                     </div>
                     <div class="col-sm-6 bg-body-tertiary">
-
-                        <div class="row mt-3">
+                        <div class="row mt-3" style="padding-top: 80px;">
                             <div class="col "></div>
                             <div class="col-sm-11">
 
@@ -59,7 +61,7 @@ if (isset($_POST['input'])) {
 
 <?php
     } else {
-        echo "<h6 class='text-danger text-center mt-3'>No data Found </h6>";
+        echo "<h1 class='text-danger text-center mt-3 bg-warning'>No data Found </h1>";
     }
 }
 ?>

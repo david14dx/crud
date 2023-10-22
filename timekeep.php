@@ -10,7 +10,7 @@
 
 </head>
 
-<body class="bg-info" onclick="<?php echo "abc"; ?>" id=" body">
+<body class="bg-info" id=" body">
     <div class="container-fluid">
         <div class="row mt-5">
             <div class="col"></div>
