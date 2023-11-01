@@ -60,8 +60,8 @@ if (isset($_POST['submit'])) {
     <title>Display Image Upload</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        img{
-            width:80px;
+        img {
+            width: 80px;
         }
     </style>
 </head>
@@ -100,7 +100,7 @@ if (isset($_POST['submit'])) {
                     }
                 }
                 ?>
-                
+
             </tbody>
         </table>
 
